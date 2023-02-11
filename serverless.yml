@@ -1,0 +1,46 @@
+org: porto06
+app: typescript-http-api
+service: typescript-http-api
+frameworkVersion: "3"
+
+params:
+  default:
+    dbName: alura-serverless
+  dev:
+    connectionString: mongodb+srv://porto:bqlocygsV1o6NQVj@alura-serverless.ekuogvy.mongodb.net/?retryWrites=true&w=majority
+    salt: zBijDtjJvCJBBOKotOTZ9W1vqNpf
+    jwt_secret: 3f5c2b5c-5f5c-4b5c-9b5c-2b5c5f5c4b5c
+  prod:
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  environment:
+    MONGO_URL: ${param:connectionString}
+    MONGO_DB_NAME: ${param:dbName}
+    SALT: ${param:salt}
+    JWT_SECRET: ${param:jwt_secret}
+
+functions:
+  sendResponse:
+    handler: api/sendResponse.handler
+    events:
+      - httpApi:
+          path: /api/results
+          method: post
+  getResult:
+    handler: api/getResult.handler
+    events:
+      - httpApi:
+          path: /api/results/{id}
+          method: get
+  login:
+    handler: api/login.handler
+    events:
+      - httpApi:
+          path: /api/login
+          method: post
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline

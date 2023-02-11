@@ -1,0 +1,1 @@
+{"version":3,"file":"extractBody.js","sourceRoot":"","sources":["../../auth/extractBody.ts"],"names":[],"mappings":";;;AAMO,IAAM,WAAW,GAAG,UAAC,KAA2B;IACrD,IAAI,CAAC,KAAK,CAAC,IAAI,EAAE;QACf,MAAM,IAAI,KAAK,CAAC,kBAAkB,CAAC,CAAC;KACrC;IAED,OAAO,IAAI,CAAC,KAAK,CAAC,KAAK,CAAC,IAAI,CAAC,CAAC;AAChC,CAAC,CAAC;AANW,QAAA,WAAW,eAMtB"}
